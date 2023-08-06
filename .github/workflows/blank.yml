@@ -7,11 +7,14 @@ on:
 
 jobs:
   test_the_action:
-    if: "contains(github.event.head_commit.message, 'backend')"
+    #if: "contains(github.event.head_commit.message, 'backend')"
     name: Test the action
     runs-on: ubuntu-18.04
     steps:
+      - name: Log
+        shell: bash
+        run: echo " $WEBHOOK_URL + ${{env.WEBHOOK_URL}}"
       - name: Webhook
         uses: distributhor/workflow-webhook@v3.0.5
         with:
-            url: "https://webhook.site/a3c71d18-3c40-43ce-a952-529e06123799"
+            url: "${{env.WEBHOOK_URL}}"

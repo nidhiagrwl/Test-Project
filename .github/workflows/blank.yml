@@ -17,4 +17,4 @@ jobs:
       - name: Webhook
         uses: distributhor/workflow-webhook@v3.0.5
         with:
-            url: "${{env.WEBHOOK_URL}}"
+            webhook_url: "${{env.WEBHOOK_URL}}"
